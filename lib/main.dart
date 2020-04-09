@@ -47,12 +47,15 @@ class _PayState extends State<Pay> {
     var options = {
       'key': 'rzp_live_tH6FiVUcs8nlTt',
       'amount': 1000,
+      'currency': 'INR',
       'name': 'Donate',
       'description': 'Donation',
       'prefill': {'contact': '9988446981', 'email': 'frazile.com@gmail.com'},
       'external': {
         'wallets': ['paytm']
-      }
+      },
+      'payment_capture': '0',
+      "receipt": "frazile_12",
     };
 
     try {
@@ -64,18 +67,23 @@ class _PayState extends State<Pay> {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     Fluttertoast.showToast(
-        msg: "SUCCESS: " + response.paymentId, timeInSecForIos: 4);
+      msg: "SUCCESS: " + response.paymentId,
+      timeInSecForIosWeb: 4,
+    );
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
     Fluttertoast.showToast(
-        msg: "ERROR: " + response.code.toString() + " - " + response.message,
-        timeInSecForIos: 4);
+      msg: "ERROR: " + response.code.toString() + " - " + response.message,
+      timeInSecForIosWeb: 4,
+    );
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
     Fluttertoast.showToast(
-        msg: "EXTERNAL_WALLET: " + response.walletName, timeInSecForIos: 4);
+      msg: "EXTERNAL_WALLET: " + response.walletName,
+      timeInSecForIosWeb: 4,
+    );
   }
 
   @override
