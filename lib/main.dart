@@ -46,7 +46,7 @@ class _PayState extends State<Pay> {
   void openCheckout() async {
     var options = {
       'key': 'rzp_live_tH6FiVUcs8nlTt',
-      'amount': 100000,
+      'amount': 200000,
       'currency': 'INR',
       'name': 'Donate',
       'description': 'Donation',
@@ -55,7 +55,7 @@ class _PayState extends State<Pay> {
         'wallets': ['paytm']
       },
       'payment_capture': '0',
-      "receipt": "frazile_12",
+      "receipt": "frazile_13",
     };
 
     try {
@@ -97,7 +97,7 @@ class _PayState extends State<Pay> {
             color: Colors.pink,
             onPressed: openCheckout,
             child: Text(
-              'Donate INR 1000.00',
+              'Donate INR 2000.00',
               style: TextStyle(
                 color: Colors.white,
               ),
